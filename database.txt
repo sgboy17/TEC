@@ -1,0 +1,25 @@
+MySQL commands
+
+
+use eth_trans_db;
+drop table eth_trans;
+CREATE TABLE `eth_trans_db`.`eth_trans` (
+  `txn_hash` VARCHAR(66) NOT NULL,
+  `method` varchar(30) NULL,
+  `block` VARCHAR(8) NULL,
+  `age` DATETIME NULL,
+  `address_from` VARCHAR(42) NULL,
+  `address_to` VARCHAR(42) NULL,
+  `name_to` VARCHAR(100) NULL,
+  `value` DECIMAL(20,15) NULL,
+  `unit` VARCHAR(5) NULL,
+  `txn_free` DECIMAL(10,8) NULL,
+  PRIMARY KEY (`txn_hash`));
+
+
+
+SET SQL_SAFE_UPDATES = 0;
+
+SELECT COUNT(*) FROM eth_trans_db.eth_trans;
+select * FROM eth_trans_db.eth_trans;
+delete from eth_trans where txn_hash is not null;
